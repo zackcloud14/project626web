@@ -39,7 +39,7 @@ function submitClick()
 	var tomorrowInt =tomorrow.replace("/","");
 
 
-var rootRef = firebase.database().ref().child("Bookings");
+var rootRef = firebase.database().ref().child("Booking_test");
 rootRef.once('value', function(snapshot) {
 	snapshot.forEach(function(childSnapshot) {
 		var studentNameData = childSnapshot.child("studentName").val();

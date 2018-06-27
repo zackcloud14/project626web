@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Test Project</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!--
+        Loading of CSS Files
+
+    -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB"
+    crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" href="css/index.css">
+
+
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gijgo@1.9.6/js/gijgo.min.js" type="text/javascript"></script>
+
+  
+
+  <link href="https://cdn.jsdelivr.net/npm/gijgo@1.9.6/css/gijgo.min.css" rel="stylesheet" type="text/css" />
+
+
+  </script>
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-sm bg-danger navbar-dark">
+    <ul class="navbar-nav">
+      <a class="navbar-brand" href="#">INTI International University</a>
+      <li class="nav-item active">
+        <a class="nav-link" href="#">Home</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Book</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Login</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link disabled" href="#">Disabled</a>
+      </li>
+    </ul>
+  </nav>
+  <div class="container">
+    Date:<input id="datepicker" width="276" />
+    <script>
+      //Date Picker Script
+      var todayDate = new Date().getDate();
+      var today = new Date();
+      var dd = today.getDate();
+      var mm = today.getMonth() + 1; //January is 0!
+      var yyyy = today.getFullYear();
+      if (dd < 10) {
+        dd = '0' + dd;
+      }
+      if (mm < 10) {
+        mm = '0' + mm;
+      }
+      var today = dd + '/' + mm + '/' + yyyy;
+      $('#datepicker').datepicker({
+        uiLibrary: 'bootstrap4',
+        format: 'dd/mm/yyyy',
+        value: today,
+        minDate: new Date(new Date().setDate(todayDate - 1)),
+        maxDate: new Date(new Date().setDate(todayDate + 1))
+      });
+    </script>
+    <div class="form-group required">
+      <label class='control-label'>
+        Name:
+      </label>
+      <input type="text" class="form-control" id="nameText" required>
+    </div>
+
+    <div class="form-group required">
+      <label class='control-label'>
+        Student ID:
+      </label>
+      <input type="text" class="form-control" id="studentID" required>
+    </div>
+    <div class="form-group required">
+      <label class='control-label'>
+        Course:
+      </label>
+      <input type="text" class="form-control" id="course" required>
+    </div>
+
+    <div class="form-group required">
+      <label class='control-label'>Venue:</label>
+      <select id="venue" class="form-control">
+        <option value="Multi Purpose Hall (MPH)">Multi Purpose Hall (MPH)</option>
+        <option value="Sports Hall">Sports Hall</option>
+        <option value="Basketball Court">Basketball Courts</option>
+        <option value="Futsal Court and Parking Lot">Futsal Court and Parking Lot</option>
+      </select>
+
+    </div>
+      <div class="form-group required">
+        <label class='control-label'>Time Slot:</label>
+        <select id="timeslot" class="form-control">
+          <option value="8.00A.M">8.00A.M</option>
+          <option value="9.00A.M">9.00A.M</option>
+          <option value="10.00A.M">10.00A.M</option>
+          <option value="11.00A.M">11.00A.M</option>
+          <option value="12.00P.M">12.00P.M</option>
+        </select>
+
+    </div>
+
+        <div class="form-group required">
+          <label class='control-label'>until:</label>
+          <select id="timeslotuntil" class="form-control">
+            <option value="8.00A.M">8.00A.M</option>
+            <option value="9.00A.M">9.00A.M</option>
+            <option value="10.00A.M">10.00A.M</option>
+            <option value="11.00A.M">11.00A.M</option>
+            <option value="12.00P.M">12.00P.M</option>
+          </select>
+        </div>
+
+
+        <div class="panel-footer">
+
+          <div align="center">
+            <button id="submitBtn" onclick="submitClick()" class="btn btn-default">Book!</button>
+          </div>
+
+          <script src="https://www.gstatic.com/firebasejs/5.1.0/firebase.js"></script>
+          <script>
+            // Initialize Firebase
+            var config = {
+              apiKey: "AIzaSyBbHt4s9n7zAX0D1nedgaHLYphHsQprGA4",
+              authDomain: "testproject-4d7b5.firebaseapp.com",
+              databaseURL: "https://testproject-4d7b5.firebaseio.com",
+              projectId: "testproject-4d7b5",
+              storageBucket: "testproject-4d7b5.appspot.com",
+              messagingSenderId: "282391652578"
+            };
+            firebase.initializeApp(config);
+          </script>
+          <script src="index.js"></script>
+          </div>
+</body>
+
+</html>
